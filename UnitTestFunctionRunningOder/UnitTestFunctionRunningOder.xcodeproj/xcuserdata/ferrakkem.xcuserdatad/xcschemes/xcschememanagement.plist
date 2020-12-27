@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>PictureAppUnitTesting.xcscheme_^#shared#^_</key>
+		<key>UnitTestFunctionRunningOder.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>F36F98842597CE870001B1AA</key>
+		<key>F3752423259922060061569E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F3F0D1B325902358003169A8</key>
+		<key>F3752440259922240061569E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
