@@ -51,4 +51,56 @@ class PictureAppUnitTestingTests: XCTestCase {
         XCTAssertFalse(isFirstNameValid, "The isFirstNameValidate() should have returned Flase for first name that is longer than 10 characters but it has returned TRUE")
     }
     
+    
+    func testSignupFormModelValidator_whenEmailFormattMatch_shouldReturnTrue(){
+        //arrange
+        //act
+        let isValidEmail = sut.isValidEmailFormat(email: "ferrakkem@gmail.com")
+        //assert
+        XCTAssertTrue(isValidEmail, "The isValidEmailFormat() should have returned TRUE for a correct email format but it has returned FALSE")
+    }
+    
+    
+    func testSignupFormModelValidator_whenEmailFormatNotMatch_shouldReturnFalse(){
+        //arrange
+        //act
+        let isValidEmail = sut.isValidEmailFormat(email: "ferrakkem.com")
+        //assert
+        XCTAssertFalse(isValidEmail, "The isValidEmailFormat() should have returned FALSE for a correct email format but it has returned TRUE")
+    }
+    
+    
+    func testSignupFormModelValidator_whenTooShortPasswordProvided_shouldReturnFalse(){
+        //arrange
+        //act
+        let isPasswordValid = sut.isPasswordValid(password: "12")
+        //Assert
+        XCTAssertFalse(isPasswordValid, "The isPasswordValid() should have returned Flase for a password  that is shorter than \(SignupConstants.passwordMinLength) than 10 characters but it has returned TRUE" )
+        
+    }
+    
+    func testSignupFormModelValidator_whenTooLongPasswordProvided_shouldReturnFalse(){
+        //arrange
+        //act
+        let isPasswordValid = sut.isPasswordValid(password: "12332443545435")
+        //assert
+        XCTAssertFalse(isPasswordValid, "The isPasswordValid() should have returned Flase for a password  that is longer than \(SignupConstants.passwordMaxLength) than 10 characters but it has returned TRUE")
+    }
+    
+    func testSignupFormModelValidator_whenEqualPassowordProvided_shouldReturnTrue(){
+        //arrange
+        //act
+        let doPasswordMatch = sut.doPasswordsMatch(password: "12345678", repeatPassword: "12345678")
+        //assert
+        XCTAssertTrue(doPasswordMatch, "The isPasswordValid() should have returned true for a password matched but it has returned FALSE" )
+    }
+    
+    func testSignupFormModelValidator_whenEqualPassowordProvided_shouldReturnFalse(){
+        //arrange
+        //act
+        let doPasswordMatch = sut.doPasswordsMatch(password: "12345678", repeatPassword: "123456789")
+        //assert
+        XCTAssertFalse(doPasswordMatch, "The isPasswordValid() should have returned FALSE for a password not matched but it has returned TRUE" )
+    }
+    
 }
